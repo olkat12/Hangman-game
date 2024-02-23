@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wisielec</name>
+    </assembly>
+    <members>
+        <member name="T:Wisielec.BladNazwyPlikuException">
+            <summary>
+            Klasa dziedzicząca po klasie Exception, stworzona do wyrzucenia błędu nazwy pliku.
+            </summary>
+        </member>
+        <member name="M:Wisielec.BladNazwyPlikuException.#ctor">
+            <summary>
+            Konstruktor nieparametryczny nie przyjmujący żadnych patametrów
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Wisielec.BladNazwyPlikuException.#ctor(System.String)" -->
+        <member name="T:Wisielec.BlednyPoziomException">
+            <summary>
+            Klasa dziedzicząca po klasie Exception, stworzona do wyrzucenia błędu poziomu.
+            </summary>
+        </member>
+        <member name="M:Wisielec.BlednyPoziomException.#ctor">
+            <summary>
+            Konstruktor nieparametryczny nie przyjmujący żadnych patametrów
+            </summary>
+        </member>
+        <member name="M:Wisielec.BlednyPoziomException.#ctor(System.String)">
+            <summary>
+            Konstruktor parametryczny do przekazywania odpowiedniej wiadomości
+            </summary>
+            <param name="message">Wiadomość na temat błędu</param>
+        </member>
+        <member name="T:Wisielec.Gra">
+             <summary>
+             Główna klasa odpowiedzialna za rozgrywkę.
+             </summary>
+            <remarks>
+            Dziedziczy po interfejsie IFunkcjeGry
+             </remarks>
+        </member>
+        <member name="P:Wisielec.Gra.Gracz">
+            <summary>
+            Gracz, który aktualnie gra.
+            </summary>
+        </member>
+        <member name="P:Wisielec.Gra.ZgadnieteLitery">
+            <summary>
+            Litery, które już zostały zgadnięte.
+            </summary>
+        </member>
+        <member name="P:Wisielec.Gra.WszystkiePodaneLitery">
+            <summary>
+            Wszystkie litery, które zostały podane w grze.
+            </summary>
+        </member>
+        <member name="M:Wisielec.Gra.#ctor(Wisielec.EnumKategoria,Wisielec.EnumPoziom,Wisielec.Gracz)">
+            <summary>
+            Konstruktor parametryczny - ustawia gracza, kategorię i poziom,
+            wczytuje słowa z plików i ustawia liczbę prób na podstawie poziomu.
+            </summary>
+            <param name="kategoria">Kategoria wybrana przez gracza.</param>
+            <param name="poziom">Poziom wybrany przez gracza.</param>
+            <param name="gracz">Gracz grający w grę.</param>
+        </member>
+        <member name="T:Wisielec.Gra.ZgadnieteLiteryUpdatedEventHandler">
+            <summary>
+            Delegat reprezentujący metodę obsługującą zdarzenie aktualizacji zgadniętych liter.
+            </summary>
+            <param name="zgadnieteLitery">Zgadnięte już litery.</param>
+        </member>
+        <member name="E:Wisielec.Gra.ZgadnieteLiteryUpdated">
+            <summary>
+            Zdarzenie wywoływane po aktualizacji zgadniętych liter.
+            </summary>
+        </member>
+        <member name="M:Wisielec.Gra.UstawLiczbeProbNaPodstawiePoziomu(Wisielec.EnumPoziom)">
+            <summary>
+            Metoda ustawiająca liczbę prób w grze na podstawie poziomu wybieranego przez gracza.
+            </summary>
+            <param name="poziom"></param>
+            <exception cref="T:Wisielec.BlednyPoziomException"></exception>
+        </member>
+        <member name="M:Wisielec.Gra.UkryjSekretneSlowo">
+            <summary>
+            Metoda, która ukrywa zgadywane słowo i zastępuje je odpowiednimi znakami.
+            </summary>
+            <returns>Ukryte słowo w postaci □. Znak spacji zastępuje pustym znakiem.</returns>
+        </member>
+        <member name="M:Wisielec.Gra.SprawdzCzyLiteraWystepujeWSlowie(System.Char)">
+            <summary>
+            Sprawdza, czy sekretne słowo zawiera podaną przez gracza literę.
+            </summary>
+            <param name="litera">Litera podawana przez gracza.</param>
+            <returns>Prawda jeśli słowo zawiera podanę literę lub fałsz w przeciwnym wypadku.</returns>
+            <remarks>
+            Jeśli litera występuje w słowie - dodaje ją do zbioru zgadniętych liter i do zbioru wszystkich podanych liter.
+            W przeciwnym razie zmniejsza liczbę prób o jedną i również dodaje literę do zbioru wszystkich podanych liter.
+            W obu przypadkach wywołuje zdarzenie ZgadnieteLiteryUpdated.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.Gra.SprawdzCzyLiteraPodana(System.Char)">
+            <summary>
+            Sprawdza, czy litera została już wcześniej podana.
+            </summary>
+            <param name="litera">Litera podawana przez gracza</param>
+            <returns>Prawda, jeżeli zbiór WszystkiePodaneLitery zawiera podawaną przez gracza literę.
+            Fałsz w przeciwnym wypadku</returns>
+        </member>
+        <member name="M:Wisielec.Gra.CzyOdgadniete">
+            <summary>
+            Sprawdza, czy słowo zostało już w całości odgadnięte.
+            </summary>
+            <returns>Prawda, jeżeli słowo zostało w całości odgadnięte. Fałsz, jeżeli jeszcze nie.</returns>
+        </member>
+        <member name="M:Wisielec.Gra.InicjalizujGre">
+            <summary>
+            Metoda inicjalizująca grę.
+            </summary>
+            <remarks>
+            Zwiększa liczbę gier zagranych przez gracza, losuje sekretne słowo,
+            czyści zbiory zawiuerające zgadnięte i podawane litery oraz ustawia ponownie liczbę prób.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.Gra.PobierzWszystkiePodaneLitery">
+            <returns>
+            Zbiór ze wzystkimi podanymi już przez gracza literami.
+            </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Wisielec.Gracz" -->
+        <member name="M:Wisielec.Gracz.#ctor">
+            <summary>
+            Konstruktor nieparametryczny gracza.
+            </summary>
+        </member>
+        <member name="M:Wisielec.Gracz.#ctor(System.String)">
+            <summary>
+            Konstruktor gracza. Ustawia: Nazwę, GryZagrane, GryWygrane oraz OdsetekSkuteczności.
+            </summary>
+            <param name="nazwa">Nazwa, którą będzie miał gracz.</param>
+        </member>
+        <member name="P:Wisielec.Gracz.Nazwa">
+            <summary>
+            Nazwa, którą będzie miał gracz. Jednocześnie klucz unikalny w bazie danych.
+            </summary>
+        </member>
+        <member name="P:Wisielec.Gracz.GryZagrane">
+            <summary>
+            Liczba gier, które rozegrał gracz.
+            </summary>
+        </member>
+        <member name="P:Wisielec.Gracz.GryWygrane">
+            <summary>
+            Liczba gier, które wygrał gracz.
+            </summary>
+        </member>
+        <member name="P:Wisielec.Gracz.OdsetekSkutecznosci">
+            <summary>
+            Stosunek liczby wygranych gier do liczby wszystkich rozegranych gier.
+            </summary>
+        </member>
+        <member name="M:Wisielec.Gracz.ZapiszDoBazy">
+            <summary>
+            Metoda, która zapisuje do bazy danych wynik gracza. Jeśli gracz jeszcze nie istnieje w bazie, dodaje go.
+            </summary>
+        </member>
+        <member name="M:Wisielec.Gracz.ObliczSkutecznosc">
+            <summary>
+            Metoda oblicza stosunek gier wygranych do wszystkich gier rozegranych i mnoży go razy 100, aby otrzymać wynik procentowy.
+            </summary>
+            <returns>Procentową skuteczność gracza lub jeśli gracz rozegrał 0 gier, zwraca 0.</returns>
+        </member>
+        <member name="M:Wisielec.Gracz.Equals(Wisielec.Gracz)">
+            <summary>
+            Porównuje, czy gracze są identyczni na podstawie ich nazwy.
+            </summary>
+            <param name="other">Inny gracz do porównania.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wisielec.Gracz.CompareTo(Wisielec.Gracz)">
+            <summary>
+            Porównuje ze sobą graczy na podstawie ich nazwy.
+            </summary>
+            <param name="other">Inny gracz do porównania.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wisielec.HistoriaGraczyDbContext">
+            <summary>
+            Klasa dziedzicząca po DbContext do stworzenia bazy danych ze statystykami graczy.
+            </summary>
+        </member>
+        <member name="P:Wisielec.HistoriaGraczyDbContext.Gracze">
+            <summary>
+            Tabela zawierająca informacje o statystykach graczy.
+            </summary>
+        </member>
+        <member name="T:Wisielec.IFunkcjeGry">
+            <summary>
+            Interfejs, który zawiera metody używane w klasie Gra
+            </summary>
+        </member>
+        <member name="T:Wisielec.EnumKategoria">
+            <summary>
+            Typ wyliczeniowy zawierający możliwe kategorie gry.
+            </summary>
+        </member>
+        <member name="T:Wisielec.EnumPoziom">
+            <summary>
+            Typ wyliczeniowy zawierający możliwe poziomy gry.
+            </summary>
+        </member>
+        <member name="T:Wisielec.PodstawyGry">
+            <summary>
+            Klasa abstrakcyjna zawierająca podstawowe pola, właściwości i metody potrzebne w klasie Gra.
+            </summary>
+            <remarks>
+            Zawiera podstawowe ustawienia do gry.
+            </remarks>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.SekretneSlowo">
+            <summary>
+            Słowo, które będzie zgadywane przez gracza.
+            </summary>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.LiczbaProb">
+            <summary>
+            Liczba prób, którą ma gracz na zgadnięcie słowa. Ustawiona na podstawie wybvranego poziomu.
+            </summary>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.CzyDzwiek">
+            <summary>
+            Przechowuje informacje, czy gracz wybrał tryb cichy czy z dźwiękiem.
+            </summary>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.MusicPlayer">
+            <summary>
+            Pełni rolę odtwarzacza muzyki.
+            </summary>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.SlowaKategorii">
+            <summary>
+            Słownik, w którym przechowywane są słowa w zależności od kategorii.
+            </summary>
+            <remarks>
+            Kategoria słowa jest kluczem, a lista słów odpowiadającą mu wartością.
+            </remarks>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.WybranaKategoria">
+            <summary>
+            Kategoria wybrana przez gracza.
+            </summary>
+        </member>
+        <member name="P:Wisielec.PodstawyGry.WybranyPoziom">
+            <summary>
+            Poziom wybrany przez gracza
+            </summary>
+        </member>
+        <member name="M:Wisielec.PodstawyGry.WczytajSlowaZPliku(System.String)">
+            <summary>
+            Metoda wczytująca słowa do gry z pliku.
+            </summary>
+            <param name="nazwaPliku">Nazwa pliku, z którego mają być wczytane słowa.</param>
+            <returns>Lista słów odczytanych z podanego pliku.</returns>
+        </member>
+        <member name="M:Wisielec.PodstawyGry.WczytajSlowaZPlikow">
+            <summary>
+            Wczytuje wszystkie słowa o odpowiedniej kategorii z wielu plików.
+            </summary>
+            <remarks>
+            Wykorzystuje metodę WczytajSlowaZPliku()
+            </remarks>
+        </member>
+        <member name="M:Wisielec.PodstawyGry.OdtworzDzwiek(System.String)">
+            <summary>
+            Służy do odtworzenia dźwięku z odpowiedniego pliku.
+            </summary>
+            <param name="sciezka">Ścieżka do pliku z dźwiękiem</param>
+        </member>
+        <member name="M:Wisielec.PodstawyGry.UstawLiczbeProbNaPodstawiePoziomu(Wisielec.EnumPoziom)">
+            <summary>
+            Metoda abstrakcyjna do przesłonięcia w klasie Gra.
+            </summary>
+            <param name="poziom">Poziom wybrany przez gracza</param>
+        </member>
+    </members>
+</doc>
