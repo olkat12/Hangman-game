@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wisielec GUI</name>
+    </assembly>
+    <members>
+        <member name="T:Wisielec.App">
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Wisielec.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Wisielec.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Wisielec.HistoriaGraczyOkno">
+            <summary>
+            Klasa odpowiedzialna za okno wyświetlające statystyki graczy.
+            </summary>
+            <summary>
+            HistoriaGraczyOkno
+            </summary>
+        </member>
+        <member name="P:Wisielec.HistoriaGraczyOkno.CzyDzwiek">
+            <summary>
+            Przechowuje informacje, czy gracz wybrał tryb cichy czy z dźwiękiem.
+            </summary>
+        </member>
+        <member name="M:Wisielec.HistoriaGraczyOkno.#ctor(System.Collections.Generic.List{Wisielec.Gracz})">
+            <summary>
+            Konstruktor, który otwiera nowe okno i wyświetla w ListBox statystyki graczy.
+            </summary>
+            <param name="gracze">Lista graczy zapisanych w bazie danych.</param>
+        </member>
+        <member name="M:Wisielec.HistoriaGraczyOkno.Button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk pozwalający powrócić do menu głównego.
+            </summary>
+        </member>
+        <member name="M:Wisielec.HistoriaGraczyOkno.ButtonSortujWygrane_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk sorujący graczy w ListBox na podstawie liczby wygranych malejąco.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Wisielec.HistoriaGraczyOkno.SortujOdsetek_Click(System.Object,System.Windows.RoutedEventArgs)" -->
+        <member name="M:Wisielec.HistoriaGraczyOkno.SortujAlfabetycznie_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk sorujący graczy w ListBox według kolejności alfabetycznej.
+            </summary>
+        </member>
+        <member name="M:Wisielec.HistoriaGraczyOkno.BSzukaj_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk, który pozwala wyszukać gracza w ListBox, na podstawie wpisanej przez użytkownika nazwy.
+            </summary>
+        </member>
+        <member name="M:Wisielec.HistoriaGraczyOkno.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Wisielec.MainWindow">
+            <summary>
+            Klasa odpowiedzialna za główne okno gry.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="P:Wisielec.MainWindow.CzyDzwiek">
+            <summary>
+            Przechowuje informacje, czy gracz wybrał tryb cichy czy z dźwiękiem.
+            </summary>
+        </member>
+        <member name="P:Wisielec.MainWindow.MusicPlayer">
+            <summary>
+            Pełni rolę odtwarzacza muzyki.
+            </summary>
+        </member>
+        <member name="M:Wisielec.MainWindow.#ctor">
+            <summary>
+            Konstruktor nieparametryczny głównego okna gry.
+            </summary>
+            /// <remarks>
+            Otwiera główne okno, ustawia odpowiednie ścieżki do obrzaów i gifów.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.MainWindow.OdtworzDzwiek(System.String)">
+            <summary>
+            Służy do odtworzenia dźwięku z odpowiedniego pliku.
+            </summary>
+            <param name="sciezka">Ścieżka do pliku z dźwiękiem</param>
+        </member>
+        <member name="M:Wisielec.MainWindow.BNowaGra_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Kliknięcie przycisku Nowa Gra skutkuje rozpoczęciem nowej gry.
+            </summary>
+            <remarks>
+            Jeśli użytkownik podał nazwę - tworzony jest nowy gracz na jej podstawie oraz otwierane okno WisielecOkno.
+            Jeśli użytkownik nie podał nazwy - wyświetla się MessageBox z informacją o braku podanej nazwy.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.MainWindow.BStatystykiGraczy_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Kliknięcie przycisku Statystyki Graczy skutkuje pojawieniem się nowego okna.
+            </summary>
+            <remarks>
+            Wykonuje się zapytanie do bazy danych o wszystkich zapisanych w niej graczy.
+            Jeśli w bazie nie ma żadnych graczy, wyświetlany jest MessageBox z odpowiednim komunikatem.
+            Jeśli są gracze - otwiera się nowe okno z ich statystykami.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.MainWindow.Dzwiek1_MouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Metoda odpowiedzialna za wyciszenie dźwięku w grze i wyświetlenie znaku wyciszenia.
+            </summary>
+        </member>
+        <member name="M:Wisielec.MainWindow.Dzwiek2_MouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Metoda odpowiedzialna za ponowne włączenie dźwięku w grze i wyświetlenie znaku dźwięku.
+            </summary>
+        </member>
+        <member name="M:Wisielec.MainWindow.BZakoncz_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Zamknięcie okna głównego gry.
+            </summary>
+        </member>
+        <member name="M:Wisielec.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Wisielec.WisielecGra">
+            <summary>
+            WisielecGra
+            </summary>
+        </member>
+        <member name="P:Wisielec.WisielecGra.GraczOkno">
+            <summary>
+            Gracz, który aktualnie gra.
+            </summary>
+        </member>
+        <member name="P:Wisielec.WisielecGra.GraOkno">
+            <summary>
+            Aktualna gra.
+            </summary>
+        </member>
+        <member name="P:Wisielec.WisielecGra.CzyDzwiek">
+            <summary>
+            Zmienna, która mówi, czy dźwięk jest włączony.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecGra.#ctor(Wisielec.Gracz,Wisielec.Gra,System.Boolean)">
+            <summary>
+            Konstruktor, który otwiera nowe okno WisielecGra i ustawia gracza, grę i dźwięk w grze.
+            </summary>
+            <param name="gracz">Aktualnie grający gracz.</param>
+            <param name="gra">Aktualna gra.</param>
+            <param name="czyDzwiek">Zmienna, która mówi, czy dźwięk jest włączony.</param>
+            <remarks>
+            Dodatkowo ustawia opisy z nazwą gracza, wybraną kategorią i poziomem trudności oraz rejstruje obsługę zdarzeń
+            i wyświetla odpowiedni obraz szubienicy.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecGra.BSettings_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Menu pozwala powrót do okna głównego i jednocześnie zapisuje aktualnego gracza do bazy danych.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecGra.WyswietlObrazSzubienicy">
+            <summary>
+            Metoda, która służy wyświetleniu odpowiedniego obrazu szubienicy na początku gry.
+            </summary>
+            <remarks>
+            Obraz szubienicy jest pobierany z odpowiedniego pliku w zależności od wybranego poziomu gry.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecGra.NastepnyObrazSzubienicy">
+            <summary>
+            Metoda służy do wyświetlania kolejnych obrazów szubienicy w miarę postępu gry.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecGra.BtnWylosujSlowo_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Wylosuj słowo pozwala graczowi wylosować słowo, które będzie zgadywał.
+            </summary>
+            <remarks>
+            Po wciśnięciu następuje inicjalizacja gry, ustawiany jest odpowiedni opis z liczbą prób, a także
+            pojawia się ukryte sekretne słowo. Wyświetlony jest obraz szubienicy nr 1 oraz zmienione na widoczne stają się:
+            napis Podaj literę, pole tekstowe do wpisania litery oraz przycisk Sprawdź.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecGra.ButtonSprawdz_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Sprawdź pozwalający sprawdzić graczowi, czy podana przez niego litera zawiera się w sekretnym słowie.
+            </summary>
+            <remarks>
+            Metoda zabezpiecza wszystkie możliwe przypadki, gdy gracz nie wpisze żadnego znaku lub więcej niż jeden znak,
+            lub podany przez niego znak nie będzie literą. Wyświetla się wtedy MessageBox z odpowiednim komunikatem.
+            Sprawdzone jest też, czy litera była już wcześniej podawana, jeśli tak nic się nie dzieje, ale gra odpowiedni dźwięk.
+            Jeśli znak jest poprawny, sprawdzane jest, czy zawiera się on w sekretnym słowie. Jeśli tak, odsłaniany jest postęp
+            odgadywanych liter w słowie i gra odpowiedni dźwięk. Jeśli nie, gracz traci jedną szansę i wyświetla się kolejny
+            obraz na szubienicy. Sprawdzone jest także, czy gra została już zakończona i jeśli tak, wywoływana jest metoda odpowiedzialna
+            za działąnia po zakończeniu gry.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecGra.ZakonczGre">
+            <summary>
+            Metoda, która odpowiada za działania po zakończeniu gry w zależności od tego, czy gracz wygrał lub przegrał.
+            </summary>
+            <remarks>
+            Jeśli gracz wygrał, zwiększają się jego wygrane. W obu przypadkach odtwarzany jest odpowiedni dźwięk
+            (jeśli gracz wybrał tryb gry z dźwiękiem) oraz ustawiony odpowiedni komunikat. Otwiera się nowe okno ZakonczenieGryOkno
+            z komunikatem. Gdy następuje powrót z okna zakończenia gry do okna gry, przywracane są ustawienia początkowe.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecGra.UstawieniePoczatkoweOknaGra">
+            <summary>
+            Metoda przywraca ustawienia początkowe w oknie gry.
+            </summary>
+            <remarks>
+            Przywracane ustawienia: ukryte słowo jest puste, liczba prób wynosi 0,
+            niewidoczne stają się: napis Podaj literę, pole tekstowe do wpisywania litery i przycisk Sprawdź. Wyświetlany jest obraz szubienicy
+            nr 1 oraz czyszczone są wszystkie litery ze zbioru zgadniętych liter.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecGra.ZarejestrujObslugeZdarzen">
+            <summary>
+            Metoda wywołuje zdarzenie po aktualizacji liter.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecGra.AktualizujEtykieteZgadnietychLiter(System.Collections.Generic.HashSet{System.Char})">
+            <summary>
+            Metoda pozwala aktualizować etykietę ze wszystkimi zgadniętymi  przez gracza literami w trakcie rozgrywki.
+            </summary>
+            <param name="zgadnieteLitery">Zbiór wszystkich liter, króre odgadł gracz.</param>
+        </member>
+        <member name="M:Wisielec.WisielecGra.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Wisielec.WisielecOkno">
+            <summary>
+            Klasa pomocnicza służąca do ustalenia ustawień przed rozgrywką.
+            </summary>
+            <summary>
+            WisielecOkno
+            </summary>
+        </member>
+        <member name="P:Wisielec.WisielecOkno.GraczOkno">
+            <summary>
+            Gracz, który aktualnie gra.
+            </summary>
+        </member>
+        <member name="P:Wisielec.WisielecOkno.GraOkno">
+            <summary>
+            Aktualna gra.
+            </summary>
+        </member>
+        <member name="P:Wisielec.WisielecOkno.CzyDzwiek">
+            <summary>
+            Zmienna, która mówi, czy dźwięk jest włączony.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.#ctor(Wisielec.Gracz,System.Boolean)">
+            <summary>
+            Konstruktor parametryczny - ustawia gracza, dźwięk oraz tło okna,
+            inicjalizuje dwa cComboBox odpowiedzialne za kategorie oraz poziom trudności.
+            </summary>
+            <param name="gracz">AGracz, który aktualnie gra.</param>
+            <param name="czyDzwiek">Czy dźwięk jest włączony.</param>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.BackgroundVideo_MediaEnded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Metoda odpowiedzialna za sprecyzowanie ustawień dotyczących video w tle okna.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.InicjalizujCmbWyborKategori">
+            <summary>
+            Metoda, która dodaje możliwe kategorie do ComboBoxa.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.InicjalizujCmBWyborTrudnosci">
+            <summary>
+            Metoda, która dodaje możliwe poziomy do ComboBoxa.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.BWrocMenu_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Kliknięcie przycisku Menu skutkuje powrotem do głównego okna gry.
+            </summary>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.Bstart_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Metoda obsługująca zdarzenie, gdy klikniemy na przycisk "Start gry". 
+            </summary>
+            <remarks>
+            Tworzy się gra z ustalonymi wcześniej parametrami oraz przechodzimy do nowego okna WisielecGra.
+            </remarks>
+        </member>
+        <member name="M:Wisielec.WisielecOkno.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Wisielec.ZakonczenieGryOkno">
+            <summary>
+            Klasa odpowiedzialna za okno zakończenia gry.
+            </summary>
+            <summary>
+            ZakonczenieGryOkno
+            </summary>
+        </member>
+        <member name="P:Wisielec.ZakonczenieGryOkno.GraczOkno">
+            <summary>
+            Aktualnie grający gracz.
+            </summary>
+        </member>
+        <member name="P:Wisielec.ZakonczenieGryOkno.GraOkno">
+            <summary>
+            Aktualna gra.
+            </summary>
+        </member>
+        <member name="P:Wisielec.ZakonczenieGryOkno.CzyDzwiek">
+            <summary>
+            Zmienna mówiąca o tym, czy w grze ma być dźwięk.
+            </summary>
+        </member>
+        <member name="P:Wisielec.ZakonczenieGryOkno.Message">
+            <summary>
+            Wiadomość do przekazania w oknie.
+            </summary>
+        </member>
+        <member name="M:Wisielec.ZakonczenieGryOkno.#ctor(System.String,Wisielec.Gracz,Wisielec.Gra,System.Boolean)">
+            <summary>
+            Konstruktor tworzy nowe okno, ustawia grę, gracza i dźwięk a także wiadomość.
+            </summary>
+            <param name="message">Wiadomość do przekazania po zakończeniu gry.</param>
+            <param name="gracz">Aktualny gracz.</param>
+            <param name="gra">Aktualna gra.</param>
+            <param name="czyDzwiek">Zmienna mówiąca o tym, czy ma być dźwięk.</param>
+        </member>
+        <member name="M:Wisielec.ZakonczenieGryOkno.BtnZakonczenieKontunuuj_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Kontunuuj pozwala kontynować grę na tym zamym poziomie, z tą samą kategorią. Zamyka okno ZakonczenieGryOkno.
+            </summary>
+        </member>
+        <member name="M:Wisielec.ZakonczenieGryOkno.BtnZakonczenieUstawienia_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Ustawienia pozwala wrócić do ustawień gry, aby zmienić poziom i kategorię.
+            Gracz pozostaje ten sam. Zamykane jest ZakonczenieGryOkno.
+            </summary>
+        </member>
+        <member name="M:Wisielec.ZakonczenieGryOkno.BtnZakonczenieMenu_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Menu pozwala wrócić do menu głównego.  Zapisuje wynik gracza do bazy danych oraz
+            zamyka ZakonczenieGryOkno i WisielecGraOkno.
+            </summary>
+        </member>
+        <member name="M:Wisielec.ZakonczenieGryOkno.BtnZakonczenieStatystyki_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Przycisk Statystyki pozwala zobaczyć statystyki gracza w obecnej rozgrywce. Po naciśnięciu wyświetla się
+            MessageBox z odpowiednim komunikatem, który przedstawia nazwę gracza, ilość gier zagranych i wygranych oraz
+            jego odsetek skuteczności.
+            </summary>
+        </member>
+        <member name="M:Wisielec.ZakonczenieGryOkno.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
